@@ -26,6 +26,7 @@ app.use('/api/zones',       zoneRoutes);
 app.use('/api/connections', connectionRoutes);
 app.use('/api/chat',        chatRoutes);
 app.use('/api/payments',    paymentRoutes);
+
 setupSocket(io);
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
