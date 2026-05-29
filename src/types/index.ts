@@ -1,0 +1,7 @@
+export interface Zone{id:string;name:string;city:string;latitude:number;longitude:number;radiusKm:number;propertyCount:number;colorKey:string;}
+export interface Listing{id:string;ownerId:string;ownerName:string;ownerInit:string;ownerColor:string;ownerVerified:boolean;ownerRating:number;zoneId:string;zoneName:string;type:'rent'|'buy'|'room'|'pg';title:string;price:number;deposit:number;bhk:string;floor:string;areaSqft:number;furnishing:'full'|'semi'|'none';amenities:string[];availableFrom:string;photos:string[];emoji:string;viewCount:number;isBoosted:boolean;createdAt:string;approximateArea:string;exactAddress?:string;latitude?:number;longitude?:number;}
+export type ConnectionStatus='none'|'pending'|'approved'|'declined';
+export interface Connection{id:string;listingId:string;seekerId:string;ownerId:string;status:ConnectionStatus;message:string;phoneUnlocked:boolean;createdAt:string;updatedAt:string;}
+export interface Message{id:string;connectionId:string;senderId:string;content:string;type:'text'|'image'|'voice';mediaUrl?:string;isRead:boolean;createdAt:string;}
+export interface User{id:string;name:string;phone:string;email?:string;profilePhoto?:string;bio?:string;occupation?:string;isOtpVerified:boolean;isEmailVerified:boolean;isIdVerified:boolean;isAadhaarVerified:boolean;isBroker:boolean;credits:number;createdAt:string;}
+export interface Filters{type?:string;minPrice?:number;maxPrice?:number;bhk?:string;furnishing?:string;zoneId?:string;}

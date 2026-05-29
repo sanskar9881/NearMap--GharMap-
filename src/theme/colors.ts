@@ -1,0 +1,28 @@
+export const C = {
+bg:     '#09090E',
+s1:     '#0D0E16',
+s2:     '#131421',
+s3:     '#191A28',
+s4:     '#21222F',
+s5:     '#292A3A',
+bA:     'rgba(255,255,255,0.04)',
+bB:     'rgba(255,255,255,0.08)',
+bC:     'rgba(255,255,255,0.15)',
+lime:   '#C4FF38',
+teal:   '#34D3BE',
+amber:  '#FFAD30',
+rose:   '#FF6080',
+violet: '#8B7FEE',
+sky:    '#5BBDF8',
+t1:     '#ECEDFA',
+t2:     '#8D8FAC',
+t3:     '#4E5068',
+};
+export const ZONE_COLORS: Record<string, { solid: string; bg: string; border: string }> = {
+kothrud: { solid: '#34D3BE', bg: 'rgba(52,211,190,0.16)',  border: 'rgba(52,211,190,0.55)'  },
+baner:   { solid: '#8B7FEE', bg: 'rgba(139,127,238,0.16)', border: 'rgba(139,127,238,0.55)' },
+aundh:   { solid: '#FFAD30', bg: 'rgba(255,173,48,0.16)',  border: 'rgba(255,173,48,0.50)'  },
+viman:   { solid: '#FF6080', bg: 'rgba(255,96,128,0.16)',  border: 'rgba(255,96,128,0.50)'  },
+wakad:   { solid: '#5BBDF8', bg: 'rgba(91,189,248,0.16)',  border: 'rgba(91,189,248,0.50)'  },
+kp:      { solid: '#C4FF38', bg: 'rgba(196,255,56,0.14)',  border: 'rgba(196,255,56,0.45)'  },
+};

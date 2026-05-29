@@ -1,30 +1,48 @@
 {
-  "expo": {
-    "name": "gharmap",
-    "slug": "gharmap",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
-      },
-      "predictiveBackGestureEnabled": false
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
-  }
+"expo": {
+"name": "GharMap",
+"slug": "gharmap",
+"version": "1.0.0",
+"orientation": "portrait",
+"scheme": "gharmap",
+"icon": "./assets/icon.png",
+"splash": {
+"image": "./assets/splash.png",
+"backgroundColor": "#09090E"
+},
+"ios": {
+"bundleIdentifier": "com.yourname.gharmap",
+"supportsTablet": false,
+"infoPlist": {
+"NSLocationWhenInUseUsageDescription": "GharMap uses your location to show nearby properties.",
+"NSCameraUsageDescription": "Take photos of your property.",
+"NSPhotoLibraryUsageDescription": "Choose property photos from your gallery."
+},
+"config": {
+"googleMapsApiKey": "YOUR_IOS_GOOGLE_MAPS_KEY"
+}
+},
+"android": {
+"package": "com.yourname.gharmap",
+"permissions": [
+"ACCESS_FINE_LOCATION",
+"ACCESS_COARSE_LOCATION",
+"CAMERA",
+"READ_EXTERNAL_STORAGE"
+],
+"config": {
+"googleMaps": {
+"apiKey": "YOUR_ANDROID_GOOGLE_MAPS_KEY"
+}
+}
+},
+"plugins": [
+["expo-location", {
+"locationWhenInUsePermission": "GharMap uses your location."
+}],
+["expo-camera", {
+"cameraPermission": "Take property photos."
+}]
+]
+}
 }
