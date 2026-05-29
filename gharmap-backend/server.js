@@ -1,0 +1,35 @@
+const express = require('express');
+const http    = require('http');
+const { Server } = require('socket.io');
+const cors    = require('cors');
+const helmet  = require('helmet');
+const morgan  = require('morgan');
+require('dotenv').config();
+const authRoutes        = require('./src/routes/auth');
+const listingRoutes     = require('./src/routes/listings');
+const zoneRoutes        = require('./src/routes/zones');
+const connectionRoutes  = require('./src/routes/connections');
+const chatRoutes        = require('./src/routes/chat');
+const paymentRoutes     = require('./src/routes/payments');
+const { setupSocket }   = require('./src/services/socket');
+const app    = express();
+const server = http.createServer(app);
+const io     = new Server(server, { cors: { origin: '*' } });
+app.use(helmet());
+app.use(cors());
+app.use(morgan('dev'));
+app.use(express.json());
+app.get('/health', (_, res) => res.json({ status: 'GharMap API running ✅' }));
+app.use('/api/auth',        authRoutes);
+app.use('/api/listings',    listingRoutes);
+app.use('/api/zones',       zoneRoutes);
+app.use('/api/connections', connectionRoutes);
+app.use('/api/chat',        chatRoutes);
+app.use('/api/payments',    paymentRoutes);
+
+setupSocket(io);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+console.log(`\n🗺️  GharMap API running on http://localhost:${PORT}`);
+console.log(`   Health check: http://localhost:${PORT}/health\n`);
+});
